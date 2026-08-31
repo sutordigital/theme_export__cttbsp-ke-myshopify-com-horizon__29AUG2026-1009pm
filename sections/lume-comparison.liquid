@@ -11,7 +11,7 @@
           {% if section.settings.lume_image != blank %}
             {{ section.settings.lume_image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '280, 460, 640, 800', sizes: '(min-width: 990px) 27vw, 100vw', alt: section.settings.lume_image.alt }}
           {% else %}
-            {{ 'product-1' | placeholder_svg_tag }}
+            <img src="{{ 'lume-hero-golden-pendant.webp' | asset_url }}" loading="lazy" width="1120" height="1400" alt="LUME custom pet portrait necklace">
           {% endif %}
         </div>
         <ul class="lume-list">
@@ -29,7 +29,7 @@
           {% if section.settings.other_image != blank %}
             {{ section.settings.other_image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '280, 460, 640, 800', sizes: '(min-width: 990px) 27vw, 100vw', alt: section.settings.other_image.alt }}
           {% else %}
-            {{ 'product-2' | placeholder_svg_tag }}
+            <img src="{{ 'lume-comparison-generic-paw.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Generic paw print pendant">
           {% endif %}
         </div>
         <ul class="lume-list">
@@ -48,7 +48,11 @@
               {% if block.settings.image != blank %}
                 {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '320, 520, 760, 1000', sizes: '(min-width: 990px) 20vw, 50vw', alt: block.settings.image.alt }}
               {% else %}
-                {{ 'product-1' | placeholder_svg_tag }}
+                {% if forloop.index == 11 %}
+                  <img src="{{ 'lume-product-cat-pendant.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Custom cat portrait necklace">
+                {% else %}
+                  <img src="{{ 'lume-hero-golden-pendant.webp' | asset_url }}" loading="lazy" width="1120" height="1400" alt="Custom golden retriever portrait necklace">
+                {% endif %}
               {% endif %}
             </div>
           {% endif %}

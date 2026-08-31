@@ -43,7 +43,7 @@
         "example_poodle": { "type": "example", "settings": { "show": true, "title": "POODLE" } },
         "example_collie": { "type": "example", "settings": { "show": true, "title": "BORDER COLLIE" } },
         "example_smile": { "type": "example", "settings": { "show": true, "title": "FLUFFY SMILE" } },
-        "example_together": { "type": "example", "settings": { "show": true, "title": "YOU & YOUR PET" } }
+        "example_together": { "type": "example", "settings": { "show": true, "title": "PORTRAIT TO PENDANT" } }
       },
       "block_order": ["example_poodle", "example_collie", "example_smile", "example_together"],
       "settings": {}

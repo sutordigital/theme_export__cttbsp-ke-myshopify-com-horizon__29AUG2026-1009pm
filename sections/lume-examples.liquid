@@ -13,7 +13,12 @@
               {% if block.settings.input_image != blank %}
                 {{ block.settings.input_image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '220, 360, 520, 700', sizes: '(min-width: 990px) 22vw, 46vw', alt: block.settings.input_image.alt }}
               {% else %}
-                {{ 'image' | placeholder_svg_tag }}
+                {% case forloop.index %}
+                  {% when 1 %}<img src="{{ 'lume-pet-poodle.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Poodle source photo">
+                  {% when 2 %}<img src="{{ 'lume-pet-border-collie.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Border collie source photo">
+                  {% when 3 %}<img src="{{ 'lume-pet-golden-retriever.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Golden retriever source photo">
+                  {% else %}<img src="{{ 'lume-outline-golden-retriever.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Approved pet portrait artwork">
+                {% endcase %}
               {% endif %}
             </div>
             <div class="lume-example__arrow" aria-hidden="true">↓</div>
@@ -21,7 +26,12 @@
               {% if block.settings.output_image != blank %}
                 {{ block.settings.output_image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '220, 360, 520, 700', sizes: '(min-width: 990px) 22vw, 46vw', alt: block.settings.output_image.alt }}
               {% else %}
-                {{ 'product-1' | placeholder_svg_tag }}
+                {% case forloop.index %}
+                  {% when 1 %}<img src="{{ 'lume-outline-poodle.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Custom poodle outline portrait">
+                  {% when 2 %}<img src="{{ 'lume-outline-border-collie.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Custom border collie outline portrait">
+                  {% when 3 %}<img src="{{ 'lume-outline-golden-retriever.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Custom golden retriever outline portrait">
+                  {% else %}<img src="{{ 'lume-hero-golden-pendant.webp' | asset_url }}" loading="lazy" width="1120" height="1400" alt="Portrait transformed into a sterling silver pendant">
+                {% endcase %}
               {% endif %}
             </div>
           </article>

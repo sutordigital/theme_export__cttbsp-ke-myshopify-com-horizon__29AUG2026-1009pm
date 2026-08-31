@@ -12,7 +12,11 @@
               {% if block.settings.image != blank %}
                 {{ block.settings.image | image_url: width: 240 | image_tag: loading: 'lazy', widths: '120, 180, 240', sizes: '76px', alt: block.settings.image.alt }}
               {% else %}
-                {{ 'image' | placeholder_svg_tag }}
+                {% case forloop.index %}
+                  {% when 1 %}<img src="{{ 'lume-pet-golden-retriever.webp' | asset_url }}" loading="lazy" width="240" height="240" alt="Golden retriever">
+                  {% when 2 %}<img src="{{ 'lume-pet-poodle.webp' | asset_url }}" loading="lazy" width="240" height="240" alt="Poodle">
+                  {% else %}<img src="{{ 'lume-pet-border-collie.webp' | asset_url }}" loading="lazy" width="240" height="240" alt="Border collie">
+                {% endcase %}
               {% endif %}
             </div>
             <div>

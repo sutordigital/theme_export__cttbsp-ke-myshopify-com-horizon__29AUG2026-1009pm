@@ -14,7 +14,13 @@
               {% if block.settings.image != blank %}
                 {{ block.settings.image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '260, 420, 560, 720', sizes: '(min-width: 990px) 18vw, 78vw', alt: block.settings.image.alt }}
               {% else %}
-                {{ 'image' | placeholder_svg_tag }}
+                {% case forloop.index %}
+                  {% when 1 %}<img src="{{ 'lume-pet-golden-retriever.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Golden retriever source photo">
+                  {% when 2 %}<img src="{{ 'lume-outline-golden-retriever.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Golden retriever custom portrait artwork">
+                  {% when 3 %}<img src="{{ 'lume-outline-golden-retriever.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Portrait artwork ready for customer approval">
+                  {% when 4 %}<img src="{{ 'lume-product-cat-pendant.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Finished sterling silver cat portrait necklace">
+                  {% else %}<img src="{{ 'lume-packaging-lume-box.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="LUME jewelry gift box ready to ship">
+                {% endcase %}
               {% endif %}
             </div>
             <p class="lume-card-copy">{{ block.settings.text }}</p>

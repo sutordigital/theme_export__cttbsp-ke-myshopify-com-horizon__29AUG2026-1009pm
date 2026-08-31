@@ -34,6 +34,12 @@
                 <span class="lume-avatar" {{ block.shopify_attributes }}>
                   {% if block.settings.image != blank %}
                     {{ block.settings.image | image_url: width: 96 | image_tag: loading: 'lazy', widths: '64, 96', sizes: '34px', alt: '' }}
+                  {% elsif forloop.index == 4 %}
+                    <img src="{{ 'lume-pet-golden-retriever.webp' | asset_url }}" loading="lazy" width="96" height="96" alt="">
+                  {% elsif forloop.index == 5 %}
+                    <img src="{{ 'lume-pet-poodle.webp' | asset_url }}" loading="lazy" width="96" height="96" alt="">
+                  {% else %}
+                    <img src="{{ 'lume-pet-border-collie.webp' | asset_url }}" loading="lazy" width="96" height="96" alt="">
                   {% endif %}
                 </span>
               {% endif %}
@@ -52,21 +58,21 @@
         {% if section.settings.main_image != blank %}
           {{ section.settings.main_image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1500, 1800', sizes: '(min-width: 990px) 52vw, 92vw', alt: section.settings.main_image.alt }}
         {% else %}
-          {{ 'product-1' | placeholder_svg_tag }}
+          <img src="{{ 'lume-hero-golden-pendant.webp' | asset_url }}" loading="eager" fetchpriority="high" width="1120" height="1400" alt="Custom golden retriever portrait necklace in sterling silver">
         {% endif %}
       </div>
       <div class="lume-media lume-hero__pet">
         {% if section.settings.pet_image != blank %}
           {{ section.settings.pet_image | image_url: width: 500 | image_tag: loading: 'eager', widths: '240, 360, 500', sizes: '(min-width: 990px) 190px, 28vw', alt: section.settings.pet_image.alt }}
         {% else %}
-          {{ 'image' | placeholder_svg_tag }}
+          <img src="{{ 'lume-pet-golden-retriever.webp' | asset_url }}" loading="eager" width="1200" height="1200" alt="Golden retriever source photo">
         {% endif %}
       </div>
       <div class="lume-media lume-hero__detail">
         {% if section.settings.detail_image != blank %}
           {{ section.settings.detail_image | image_url: width: 420 | image_tag: loading: 'lazy', widths: '180, 300, 420', sizes: '(min-width: 990px) 155px, 23vw', alt: section.settings.detail_image.alt }}
         {% else %}
-          {{ 'product-2' | placeholder_svg_tag }}
+          <img src="{{ 'lume-product-cat-pendant.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Custom cat portrait pendant detail">
         {% endif %}
       </div>
       {% if section.settings.note != blank %}<div class="lume-hero__note">{{ section.settings.note }}</div>{% endif %}
