@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "lume_hero": {
+      "type": "lume-hero",
+      "blocks": {
+        "benefit_likeness": { "type": "benefit", "settings": { "show": true, "icon": "♡", "text": "Looks exactly like your pet" } },
+        "benefit_approval": { "type": "benefit", "settings": { "show": true, "icon": "✓", "text": "Approve the portrait before it’s made" } },
+        "benefit_silver": { "type": "benefit", "settings": { "show": true, "icon": "✦", "text": "Made in 925 Sterling Silver" } },
+        "avatar_one": { "type": "avatar", "settings": {} },
+        "avatar_two": { "type": "avatar", "settings": {} },
+        "avatar_three": { "type": "avatar", "settings": {} }
+      },
+      "block_order": ["benefit_likeness", "benefit_approval", "benefit_silver", "avatar_one", "avatar_two", "avatar_three"],
+      "settings": {}
+    },
+    "lume_trust": {
+      "type": "lume-trust-strip",
+      "blocks": {
+        "trust_silver": { "type": "trust_point", "settings": { "show": true, "icon": "✦", "title": "925 Sterling Silver", "text": "Never fades, made to last." } },
+        "trust_approval": { "type": "trust_point", "settings": { "show": true, "icon": "✓", "title": "Portraits Approved", "text": "You approve before we create." } },
+        "trust_revision": { "type": "trust_point", "settings": { "show": true, "icon": "↻", "title": "One Free Revision", "text": "Get it right, with no extra cost." } },
+        "trust_check": { "type": "trust_point", "settings": { "show": true, "icon": "✓", "title": "Final Likeness Check", "text": "We check and sign off your approval." } },
+        "trust_guarantee": { "type": "trust_point", "settings": { "show": true, "icon": "◇", "title": "Risk-Free Guarantee", "text": "We make it right, always." } }
+      },
+      "block_order": ["trust_silver", "trust_approval", "trust_revision", "trust_check", "trust_guarantee"],
+      "settings": {}
+    },
+    "lume_process": {
+      "type": "lume-process",
+      "blocks": {
+        "step_upload": { "type": "step", "settings": { "show": true, "number": "1", "title": "YOU UPLOAD YOUR PHOTO", "text": "Choose your favorite clear photo." } },
+        "step_create": { "type": "step", "settings": { "show": true, "number": "2", "title": "WE CREATE THE PORTRAIT", "text": "Our artist captures your pet’s signature features in clean line art." } },
+        "step_review": { "type": "step", "settings": { "show": true, "number": "3", "title": "YOU REVIEW & APPROVE", "text": "Request one free revision or approve when it’s perfect." } },
+        "step_craft": { "type": "step", "settings": { "show": true, "number": "4", "title": "WE CRAFT YOUR NECKLACE", "text": "Made in 925 Sterling Silver and crafted with care." } },
+        "step_ship": { "type": "step", "settings": { "show": true, "number": "5", "title": "WE CHECK & SHIP TO YOU", "text": "Final likeness check, beautiful packaging, and on its way." } }
+      },
+      "block_order": ["step_upload", "step_create", "step_review", "step_craft", "step_ship"],
+      "settings": {}
+    },
+    "lume_examples": {
+      "type": "lume-examples",
+      "blocks": {
+        "example_poodle": { "type": "example", "settings": { "show": true, "title": "POODLE" } },
+        "example_collie": { "type": "example", "settings": { "show": true, "title": "BORDER COLLIE" } },
+        "example_smile": { "type": "example", "settings": { "show": true, "title": "FLUFFY SMILE" } },
+        "example_together": { "type": "example", "settings": { "show": true, "title": "YOU & YOUR PET" } }
+      },
+      "block_order": ["example_poodle", "example_collie", "example_smile", "example_together"],
+      "settings": {}
+    },
+    "lume_comparison": {
+      "type": "lume-comparison",
+      "blocks": {
+        "lume_one": { "type": "lume_point", "settings": { "show": true, "text": "Looks like your pet’s unique self" } },
+        "lume_two": { "type": "lume_point", "settings": { "show": true, "text": "Portraits approved before made" } },
+        "lume_three": { "type": "lume_point", "settings": { "show": true, "text": "Real likeness check at every order" } },
+        "lume_four": { "type": "lume_point", "settings": { "show": true, "text": "925 Sterling Silver, built to last" } },
+        "lume_five": { "type": "lume_point", "settings": { "show": true, "text": "Real people. Real happiness." } },
+        "other_one": { "type": "other_point", "settings": { "show": true, "text": "Generic or hard to recognize" } },
+        "other_two": { "type": "other_point", "settings": { "show": true, "text": "No approval, no portrait" } },
+        "other_three": { "type": "other_point", "settings": { "show": true, "text": "Risk of no likeness" } },
+        "other_four": { "type": "other_point", "settings": { "show": true, "text": "Cheap materials" } },
+        "other_five": { "type": "other_point", "settings": { "show": true, "text": "Slow or no response" } },
+        "support_cat": { "type": "support_image", "settings": { "show": true } },
+        "support_dog": { "type": "support_image", "settings": { "show": true } }
+      },
+      "block_order": ["lume_one", "lume_two", "lume_three", "lume_four", "lume_five", "other_one", "other_two", "other_three", "other_four", "other_five", "support_cat", "support_dog"],
+      "settings": {}
+    },
+    "lume_testimonials": {
+      "type": "lume-testimonials",
+      "blocks": {
+        "review_one": { "type": "testimonial", "settings": { "show": true, "quote": "It looks exactly like him. I haven’t taken it off since I got it.", "name": "Megan T." } },
+        "review_two": { "type": "testimonial", "settings": { "show": true, "quote": "The details are true — every little whisker.", "name": "Rachel K." } },
+        "review_three": { "type": "testimonial", "settings": { "show": true, "quote": "I cried. Such a loving gift. It means the world to me.", "name": "Amanda L." } }
+      },
+      "block_order": ["review_one", "review_two", "review_three"],
+      "settings": {}
+    },
+    "lume_final": { "type": "lume-final-cta", "settings": {} },
+    "lume_sticky": { "type": "lume-sticky-cta", "settings": {} }
+  },
+  "order": [
+    "lume_hero",
+    "lume_trust",
+    "lume_process",
+    "lume_examples",
+    "lume_comparison",
+    "lume_testimonials",
+    "lume_final",
+    "lume_sticky"
+  ]
+}

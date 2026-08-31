@@ -1,0 +1,65 @@
+<section class="lume-section lume-testimonials" style="--lume-background: {{ section.settings.background }}; --lume-gold: {{ section.settings.accent }};">
+  <div class="lume-shell">
+    <header class="lume-section__head">
+      <h2 class="lume-heading lume-heading--section">{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}<p class="lume-subheading">{{ section.settings.subheading }}</p>{% endif %}
+    </header>
+    <div class="lume-card-row" style="--lume-columns: 3" role="list">
+      {% for block in section.blocks %}
+        {% if block.settings.show %}
+          <article class="lume-card lume-testimonial" role="listitem" {{ block.shopify_attributes }}>
+            <div class="lume-media lume-testimonial__avatar">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 240 | image_tag: loading: 'lazy', widths: '120, 180, 240', sizes: '76px', alt: block.settings.image.alt }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag }}
+              {% endif %}
+            </div>
+            <div>
+              <div class="lume-stars" aria-label="5 stars">★★★★★</div>
+              <blockquote class="lume-testimonial__quote">“{{ block.settings.quote }}”</blockquote>
+              <div class="lume-testimonial__name">— {{ block.settings.name }}</div>
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LUME testimonials",
+  "tag": "section",
+  "enabled_on": { "templates": ["page"] },
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "LOVED BY THOUSANDS OF PET PARENTS" },
+    { "type": "text", "id": "subheading", "label": "Subheading" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#fffaf3" },
+    { "type": "color", "id": "accent", "label": "Accent", "default": "#b87a20" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "limit": 6,
+      "settings": [
+        { "type": "checkbox", "id": "show", "label": "Show", "default": true },
+        { "type": "image_picker", "id": "image", "label": "Customer or pet image" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "It looks exactly like him. I haven’t taken it off since I got it." },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Megan T." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LUME testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "It looks exactly like him. I haven’t taken it off since I got it.", "name": "Megan T." } },
+        { "type": "testimonial", "settings": { "quote": "The details are true — every little whisker.", "name": "Rachel K." } },
+        { "type": "testimonial", "settings": { "quote": "I cried. Such a loving gift. It means the world to me.", "name": "Amanda L." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

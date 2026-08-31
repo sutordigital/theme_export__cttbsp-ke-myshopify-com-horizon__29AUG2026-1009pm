@@ -1,0 +1,132 @@
+{{ 'lume-landing.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="lume-section lume-hero"
+  style="--lume-background: {{ section.settings.background }}; --lume-gold: {{ section.settings.accent }};"
+  data-lume-page
+>
+  <div class="lume-shell lume-hero__grid">
+    <div class="lume-hero__copy">
+      {% if section.settings.eyebrow != blank %}<p class="lume-eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+      <h1 class="lume-heading">{{ section.settings.heading }}</h1>
+      {% if section.settings.text != blank %}<div class="lume-subheading lume-hero__text">{{ section.settings.text }}</div>{% endif %}
+
+      <div class="lume-benefits" role="list">
+        {% for block in section.blocks %}
+          {% if block.type == 'benefit' and block.settings.show %}
+            <div class="lume-benefit" role="listitem" {{ block.shopify_attributes }}>
+              <span class="lume-icon" aria-hidden="true">{{ block.settings.icon }}</span>
+              <span>{{ block.settings.text }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <a class="lume-button" href="{{ section.settings.button_link | default: '#lume-final-cta' }}">
+        {{ section.settings.button_label }}
+      </a>
+
+      {% if section.settings.show_review %}
+        <div class="lume-review-mini">
+          <div class="lume-avatars" aria-hidden="true">
+            {% for block in section.blocks %}
+              {% if block.type == 'avatar' %}
+                <span class="lume-avatar" {{ block.shopify_attributes }}>
+                  {% if block.settings.image != blank %}
+                    {{ block.settings.image | image_url: width: 96 | image_tag: loading: 'lazy', widths: '64, 96', sizes: '34px', alt: '' }}
+                  {% endif %}
+                </span>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div>
+            <div class="lume-review-mini__rating"><span class="lume-stars" aria-label="5 stars">★★★★★</span> {{ section.settings.rating_text }}</div>
+            <div class="lume-review-mini__quote">“{{ section.settings.review_quote }}”</div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="lume-hero__visual" aria-label="{{ section.settings.visual_label | escape }}">
+      <div class="lume-media lume-hero__main">
+        {% if section.settings.main_image != blank %}
+          {{ section.settings.main_image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1500, 1800', sizes: '(min-width: 990px) 52vw, 92vw', alt: section.settings.main_image.alt }}
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+      <div class="lume-media lume-hero__pet">
+        {% if section.settings.pet_image != blank %}
+          {{ section.settings.pet_image | image_url: width: 500 | image_tag: loading: 'eager', widths: '240, 360, 500', sizes: '(min-width: 990px) 190px, 28vw', alt: section.settings.pet_image.alt }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+      <div class="lume-media lume-hero__detail">
+        {% if section.settings.detail_image != blank %}
+          {{ section.settings.detail_image | image_url: width: 420 | image_tag: loading: 'lazy', widths: '180, 300, 420', sizes: '(min-width: 990px) 155px, 23vw', alt: section.settings.detail_image.alt }}
+        {% else %}
+          {{ 'product-2' | placeholder_svg_tag }}
+        {% endif %}
+      </div>
+      {% if section.settings.note != blank %}<div class="lume-hero__note">{{ section.settings.note }}</div>{% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "LUME hero",
+  "tag": "section",
+  "class": "lume-page",
+  "enabled_on": { "templates": ["page"] },
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE DETAILS THAT MAKE THEM THEM." },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "A portrait of your pet, made wearable." },
+    { "type": "richtext", "id": "text", "label": "Supporting text", "default": "<p>Turn your favorite photo into a custom pet portrait necklace you’ll never want to take off.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "CREATE YOURS NOW →" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "checkbox", "id": "show_review", "label": "Show review row", "default": true },
+    { "type": "text", "id": "rating_text", "label": "Rating summary", "default": "4.9/5 from 1,500+ pet parents" },
+    { "type": "text", "id": "review_quote", "label": "Review quote", "default": "Looks exactly like him. I wear it every day." },
+    { "type": "header", "content": "Visual composition" },
+    { "type": "image_picker", "id": "main_image", "label": "Main product image" },
+    { "type": "image_picker", "id": "pet_image", "label": "Pet input image" },
+    { "type": "image_picker", "id": "detail_image", "label": "Outcome detail image" },
+    { "type": "text", "id": "visual_label", "label": "Visual alt label", "default": "Custom pet portrait necklace shown with the source pet photo" },
+    { "type": "text", "id": "note", "label": "Handwritten note", "default": "Made to be yours, every day" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#f7efe5" },
+    { "type": "color", "id": "accent", "label": "Accent", "default": "#b87a20" }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "limit": 3,
+      "settings": [
+        { "type": "checkbox", "id": "show", "label": "Show", "default": true },
+        { "type": "text", "id": "icon", "label": "Icon or symbol", "default": "♡" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Looks exactly like your pet" }
+      ]
+    },
+    {
+      "type": "avatar",
+      "name": "Review avatar",
+      "limit": 3,
+      "settings": [{ "type": "image_picker", "id": "image", "label": "Image" }]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LUME hero",
+      "blocks": [
+        { "type": "benefit", "settings": { "icon": "♡", "text": "Looks exactly like your pet" } },
+        { "type": "benefit", "settings": { "icon": "✓", "text": "Approve the portrait before it’s made" } },
+        { "type": "benefit", "settings": { "icon": "✦", "text": "Made in 925 Sterling Silver" } },
+        { "type": "avatar" }, { "type": "avatar" }, { "type": "avatar" }
+      ]
+    }
+  ]
+}
+{% endschema %}

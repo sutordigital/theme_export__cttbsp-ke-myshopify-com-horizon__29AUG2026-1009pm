@@ -1,0 +1,21 @@
+{% if section.settings.show %}
+  <aside class="lume-sticky" aria-label="Quick order">
+    <div class="lume-sticky__label">{{ section.settings.label }}</div>
+    <a class="lume-button" href="{{ section.settings.button_link | default: '#lume-final-cta' }}">{{ section.settings.button_label }}</a>
+  </aside>
+{% endif %}
+
+{% schema %}
+{
+  "name": "LUME mobile sticky CTA",
+  "tag": "section",
+  "enabled_on": { "templates": ["page"] },
+  "settings": [
+    { "type": "checkbox", "id": "show", "label": "Show on mobile", "default": true },
+    { "type": "text", "id": "label", "label": "Product label", "default": "Custom Pet Portrait Necklace" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Create Yours" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "LUME mobile sticky CTA" }]
+}
+{% endschema %}
