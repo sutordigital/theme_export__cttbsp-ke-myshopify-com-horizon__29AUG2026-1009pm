@@ -12,9 +12,9 @@
     "lume_hero": {
       "type": "lume-hero",
       "blocks": {
-        "benefit_likeness": { "type": "benefit", "settings": { "show": true, "icon": "♡", "text": "Looks exactly like your pet" } },
-        "benefit_approval": { "type": "benefit", "settings": { "show": true, "icon": "✓", "text": "Approve the portrait before it’s made" } },
-        "benefit_silver": { "type": "benefit", "settings": { "show": true, "icon": "✦", "text": "Made in 925 Sterling Silver" } },
+        "benefit_likeness": { "type": "benefit", "settings": { "show": true, "text": "Looks exactly like your pet" } },
+        "benefit_approval": { "type": "benefit", "settings": { "show": true, "text": "Approve the portrait before it’s made" } },
+        "benefit_silver": { "type": "benefit", "settings": { "show": true, "text": "Made in 925 Sterling Silver" } },
         "avatar_one": { "type": "avatar", "settings": {} },
         "avatar_two": { "type": "avatar", "settings": {} },
         "avatar_three": { "type": "avatar", "settings": {} }
@@ -25,11 +25,11 @@
     "lume_trust": {
       "type": "lume-trust-strip",
       "blocks": {
-        "trust_silver": { "type": "trust_point", "settings": { "show": true, "icon": "✦", "title": "925 Sterling Silver", "text": "Never fades, made to last." } },
-        "trust_approval": { "type": "trust_point", "settings": { "show": true, "icon": "✓", "title": "Portraits Approved", "text": "You approve before we create." } },
-        "trust_revision": { "type": "trust_point", "settings": { "show": true, "icon": "↻", "title": "One Free Revision", "text": "Get it right, with no extra cost." } },
-        "trust_check": { "type": "trust_point", "settings": { "show": true, "icon": "✓", "title": "Final Likeness Check", "text": "We check and sign off your approval." } },
-        "trust_guarantee": { "type": "trust_point", "settings": { "show": true, "icon": "◇", "title": "Risk-Free Guarantee", "text": "We make it right, always." } }
+        "trust_silver": { "type": "trust_point", "settings": { "show": true, "title": "925 Sterling Silver", "text": "Never fades, made to last." } },
+        "trust_approval": { "type": "trust_point", "settings": { "show": true, "title": "Portraits Approved", "text": "You approve before we create." } },
+        "trust_revision": { "type": "trust_point", "settings": { "show": true, "title": "One Free Revision", "text": "Get it right, with no extra cost." } },
+        "trust_check": { "type": "trust_point", "settings": { "show": true, "title": "Final Likeness Check", "text": "We check and sign off your approval." } },
+        "trust_guarantee": { "type": "trust_point", "settings": { "show": true, "title": "Risk-Free Guarantee", "text": "We make it right, always." } }
       },
       "block_order": ["trust_silver", "trust_approval", "trust_revision", "trust_check", "trust_guarantee"],
       "settings": {}

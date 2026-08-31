@@ -7,8 +7,21 @@
     <div class="lume-trust__grid" role="list">
       {% for block in section.blocks %}
         {% if block.settings.show %}
+          {% case forloop.index %}
+            {% when 1 %}{% assign fallback_illustration = 'lume-icon-lasting-silver.webp' %}
+            {% when 2 %}{% assign fallback_illustration = 'lume-icon-approved-proof.webp' %}
+            {% when 3 %}{% assign fallback_illustration = 'lume-icon-free-revision.webp' %}
+            {% when 4 %}{% assign fallback_illustration = 'lume-icon-final-check.webp' %}
+            {% else %}{% assign fallback_illustration = 'lume-icon-guarantee.webp' %}
+          {% endcase %}
           <div class="lume-trust__item" role="listitem" {{ block.shopify_attributes }}>
-            <span class="lume-icon lume-trust__icon" aria-hidden="true">{{ block.settings.icon }}</span>
+            <span class="lume-trust__illustration" aria-hidden="true">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 320 | image_tag: loading: 'lazy', widths: '160, 240, 320', sizes: '72px', alt: '' }}
+              {% else %}
+                <img src="{{ fallback_illustration | asset_url }}" loading="lazy" width="320" height="320" alt="">
+              {% endif %}
+            </span>
             <h3 class="lume-card-title">{{ block.settings.title }}</h3>
             <p class="lume-card-copy">{{ block.settings.text }}</p>
           </div>
@@ -35,7 +48,7 @@
       "limit": 5,
       "settings": [
         { "type": "checkbox", "id": "show", "label": "Show", "default": true },
-        { "type": "text", "id": "icon", "label": "Icon or symbol", "default": "✦" },
+        { "type": "image_picker", "id": "image", "label": "Custom illustration" },
         { "type": "text", "id": "title", "label": "Title", "default": "925 Sterling Silver" },
         { "type": "text", "id": "text", "label": "Supporting line", "default": "Never fades, made to last." }
       ]
@@ -45,11 +58,11 @@
     {
       "name": "LUME trust strip",
       "blocks": [
-        { "type": "trust_point", "settings": { "icon": "✦", "title": "925 Sterling Silver", "text": "Never fades, made to last." } },
-        { "type": "trust_point", "settings": { "icon": "✓", "title": "Portraits Approved", "text": "You approve before we create." } },
-        { "type": "trust_point", "settings": { "icon": "↻", "title": "One Free Revision", "text": "Get it right, with no extra cost." } },
-        { "type": "trust_point", "settings": { "icon": "✓", "title": "Final Likeness Check", "text": "We check and sign off your approval." } },
-        { "type": "trust_point", "settings": { "icon": "◇", "title": "Risk-Free Guarantee", "text": "We make it right, always." } }
+        { "type": "trust_point", "settings": { "title": "925 Sterling Silver", "text": "Never fades, made to last." } },
+        { "type": "trust_point", "settings": { "title": "Portraits Approved", "text": "You approve before we create." } },
+        { "type": "trust_point", "settings": { "title": "One Free Revision", "text": "Get it right, with no extra cost." } },
+        { "type": "trust_point", "settings": { "title": "Final Likeness Check", "text": "We check and sign off your approval." } },
+        { "type": "trust_point", "settings": { "title": "Risk-Free Guarantee", "text": "We make it right, always." } }
       ]
     }
   ]
