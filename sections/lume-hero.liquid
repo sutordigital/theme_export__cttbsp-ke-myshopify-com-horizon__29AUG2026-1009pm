@@ -76,7 +76,7 @@
         {% if section.settings.pet_image != blank %}
           {{ section.settings.pet_image | image_url: width: 500 | image_tag: loading: 'eager', widths: '240, 360, 500', sizes: '(min-width: 990px) 190px, 28vw', alt: section.settings.pet_image.alt }}
         {% else %}
-          <img src="{{ 'lume-pet-golden-retriever-full-body-v3.jpg' | asset_url }}" loading="eager" width="1254" height="1254" alt="Full-body golden retriever source photo matching the pendant pose">
+          <img src="{{ 'lume-pet-golden-retriever-full-body-v2.jpg' | asset_url }}" loading="eager" width="1254" height="1254" alt="Full-body golden retriever source photo matching the pendant pose">
         {% endif %}
       </div>
       <div class="lume-media lume-hero__detail">
