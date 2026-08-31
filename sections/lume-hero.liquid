@@ -76,14 +76,14 @@
         {% if section.settings.pet_image != blank %}
           {{ section.settings.pet_image | image_url: width: 500 | image_tag: loading: 'eager', widths: '240, 360, 500', sizes: '(min-width: 990px) 190px, 28vw', alt: section.settings.pet_image.alt }}
         {% else %}
-          <img src="{{ 'lume-pet-golden-retriever.webp' | asset_url }}" loading="eager" width="1200" height="1200" alt="Golden retriever source photo">
+          <img src="{{ 'lume-pet-golden-retriever-full-body-v3.jpg' | asset_url }}" loading="eager" width="1254" height="1254" alt="Full-body golden retriever source photo matching the pendant pose">
         {% endif %}
       </div>
       <div class="lume-media lume-hero__detail">
         {% if section.settings.detail_image != blank %}
           {{ section.settings.detail_image | image_url: width: 420 | image_tag: loading: 'lazy', widths: '180, 300, 420', sizes: '(min-width: 990px) 155px, 23vw', alt: section.settings.detail_image.alt }}
         {% else %}
-          <img src="{{ 'lume-product-cat-pendant.webp' | asset_url }}" loading="lazy" width="1200" height="1200" alt="Custom cat portrait pendant detail">
+          <img src="{{ 'lume-necklace-worn-v2.jpg' | asset_url }}" loading="lazy" width="1254" height="1254" alt="Woman wearing a custom golden retriever portrait necklace">
         {% endif %}
       </div>
       {% if section.settings.note != blank %}<div class="lume-hero__note">{{ section.settings.note }}</div>{% endif %}
