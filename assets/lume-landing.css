@@ -128,15 +128,18 @@
 .lume-benefit {
   display: grid;
   gap: .45rem;
+  align-content: start;
+  justify-items: center;
   color: var(--lume-ink);
   font-size: .8rem;
   font-weight: 650;
   line-height: 1.3;
+  text-align: center;
 }
 
 .lume-benefit__illustration {
   display: block;
-  width: clamp(64px, 5.5vw, 82px);
+  width: clamp(88px, 7.5vw, 112px);
   aspect-ratio: 1;
 }
 
@@ -237,7 +240,7 @@
 }
 .lume-trust__illustration {
   display: block;
-  width: 72px;
+  width: clamp(88px, 7vw, 104px);
   aspect-ratio: 1;
   margin: 0 auto .65rem;
 }
@@ -356,14 +359,19 @@
   .lume-hero__grid { gap: 1.45rem; }
   .lume-benefits { gap: .4rem; margin: 1.15rem 0; }
   .lume-benefit { font-size: .68rem; }
-  .lume-benefit__illustration { width: 58px; }
-  .lume-trust__illustration { width: 60px; }
+  .lume-benefit__illustration { width: 76px; }
+  .lume-trust__illustration { width: 88px; }
   .lume-icon { width: 32px; height: 32px; font-size: .85rem; }
   .lume-button { width: 100%; min-height: 52px; }
   .lume-review-mini { margin-top: .85rem; }
   .lume-hero__visual { min-height: min(112vw, 480px); }
   .lume-hero__main { inset: 4% 8% 8% 0; }
-  .lume-hero__note { display: none; }
+  .lume-hero__note {
+    display: block;
+    bottom: 31%;
+    max-width: 120px;
+    font-size: .78rem;
+  }
   .lume-trust__grid { grid-template-columns: repeat(2, 1fr); }
   .lume-trust__item:last-child { grid-column: 1 / -1; }
   .lume-trust__item { padding: .9rem .65rem; }
