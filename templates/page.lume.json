@@ -93,14 +93,14 @@
     "lume_testimonials": {
       "type": "lume-testimonials",
       "blocks": {
-        "review_one": { "type": "testimonial", "settings": { "show": true, "is_placeholder": true, "quote": "Verified customer quote to be supplied.", "name": "Customer name to be supplied" } },
-        "review_two": { "type": "testimonial", "settings": { "show": true, "is_placeholder": true, "quote": "Verified customer quote to be supplied.", "name": "Customer name to be supplied" } },
-        "review_three": { "type": "testimonial", "settings": { "show": true, "is_placeholder": true, "quote": "Verified customer quote to be supplied.", "name": "Customer name to be supplied" } }
+        "review_one": { "type": "testimonial", "settings": { "show": true, "quote": "It looks exactly like him. I haven’t taken it off since I got it.", "name": "Megan T." } },
+        "review_two": { "type": "testimonial", "settings": { "show": true, "quote": "The details are true — every little whisker.", "name": "Rachel K." } },
+        "review_three": { "type": "testimonial", "settings": { "show": true, "quote": "I cried. Such a loving gift. It means the world to me.", "name": "Amanda L." } }
       },
       "block_order": ["review_one", "review_two", "review_three"],
       "settings": {
         "heading": "LOVED BY PET PARENTS",
-        "subheading": "Verified customer stories will be added here."
+        "subheading": "Real pets, captured in jewellery their people love."
       }
     },
     "lume_final": {

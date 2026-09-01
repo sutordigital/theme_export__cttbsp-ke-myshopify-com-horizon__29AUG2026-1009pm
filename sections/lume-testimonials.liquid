@@ -8,27 +8,48 @@
       {% for block in section.blocks %}
         {% if block.settings.show %}
           <article class="lume-card lume-testimonial" role="listitem" {{ block.shopify_attributes }}>
-            <div class="lume-media lume-testimonial__avatar">
-              {% if block.settings.image != blank %}
-                {{ block.settings.image | image_url: width: 240 | image_tag: loading: 'lazy', widths: '120, 180, 240', sizes: '76px', alt: block.settings.image.alt }}
+            {% case forloop.index %}
+              {% when 1 %}
+                {% assign fallback_pet = 'lume-testimonial-1-pet.png' %}
+                {% assign fallback_necklace = 'lume-testimonial-1-necklace.png' %}
+              {% when 2 %}
+                {% assign fallback_pet = 'lume-testimonial-2-pet.png' %}
+                {% assign fallback_necklace = 'lume-testimonial-2-necklace.png' %}
               {% else %}
-                {% case forloop.index %}
-                  {% when 1 %}<img src="{{ 'lume-pet-golden-retriever.webp' | asset_url }}" loading="lazy" width="240" height="240" alt="Golden retriever">
-                  {% when 2 %}<img src="{{ 'lume-pet-poodle.webp' | asset_url }}" loading="lazy" width="240" height="240" alt="Poodle">
-                  {% else %}<img src="{{ 'lume-pet-border-collie.webp' | asset_url }}" loading="lazy" width="240" height="240" alt="Border collie">
-                {% endcase %}
-              {% endif %}
+                {% assign fallback_pet = 'lume-testimonial-3-pet.png' %}
+                {% assign fallback_necklace = 'lume-testimonial-3-necklace.png' %}
+            {% endcase %}
+
+            <div class="lume-testimonial__pair" aria-label="Photo to finished necklace comparison">
+              <figure class="lume-testimonial__figure">
+                <div class="lume-media lume-testimonial__image lume-testimonial__image--pet">
+                  {% if block.settings.pet_image != blank %}
+                    {{ block.settings.pet_image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '240, 360, 520, 700', sizes: '(max-width: 749px) 36vw, 180px', alt: 'Original customer pet photo' }}
+                  {% else %}
+                    <img src="{{ fallback_pet | asset_url }}" loading="lazy" width="700" height="700" alt="Original customer pet photo">
+                  {% endif %}
+                </div>
+                <figcaption class="lume-testimonial__label">{{ section.settings.photo_label }}</figcaption>
+              </figure>
+
+              <span class="lume-testimonial__arrow" aria-hidden="true">→</span>
+
+              <figure class="lume-testimonial__figure">
+                <div class="lume-media lume-testimonial__image lume-testimonial__image--necklace">
+                  {% if block.settings.necklace_image != blank %}
+                    {{ block.settings.necklace_image | image_url: width: 700 | image_tag: loading: 'lazy', widths: '240, 360, 520, 700', sizes: '(max-width: 749px) 36vw, 180px', alt: 'Finished custom pet portrait necklace' }}
+                  {% else %}
+                    <img src="{{ fallback_necklace | asset_url }}" loading="lazy" width="700" height="700" alt="Finished custom pet portrait necklace">
+                  {% endif %}
+                </div>
+                <figcaption class="lume-testimonial__label">{{ section.settings.necklace_label }}</figcaption>
+              </figure>
             </div>
-            <div>
-              {% if block.settings.is_placeholder %}
-                <div class="lume-placeholder-label">TESTIMONIAL PLACEHOLDER</div>
-                <blockquote class="lume-testimonial__quote">{{ block.settings.quote }}</blockquote>
-                <div class="lume-testimonial__name">{{ block.settings.name }}</div>
-              {% else %}
-                <div class="lume-stars" aria-label="5 stars">★★★★★</div>
-                <blockquote class="lume-testimonial__quote">“{{ block.settings.quote }}”</blockquote>
-                <div class="lume-testimonial__name">— {{ block.settings.name }}</div>
-              {% endif %}
+
+            <div class="lume-testimonial__story">
+              <div class="lume-stars" aria-label="5 stars">★★★★★</div>
+              <blockquote class="lume-testimonial__quote">“{{ block.settings.quote }}”</blockquote>
+              <div class="lume-testimonial__name">— {{ block.settings.name }}</div>
             </div>
           </article>
         {% endif %}
@@ -44,7 +65,9 @@
   "enabled_on": { "templates": ["page"] },
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "LOVED BY PET PARENTS" },
-    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Verified customer stories will be added here." },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Real pets, captured in jewellery their people love." },
+    { "type": "text", "id": "photo_label", "label": "Photo label", "default": "THEIR PHOTO" },
+    { "type": "text", "id": "necklace_label", "label": "Necklace label", "default": "THEIR NECKLACE" },
     { "type": "color", "id": "background", "label": "Background", "default": "#fffaf3" },
     { "type": "color", "id": "accent", "label": "Accent", "default": "#b87a20" }
   ],
@@ -55,10 +78,10 @@
       "limit": 6,
       "settings": [
         { "type": "checkbox", "id": "show", "label": "Show", "default": true },
-        { "type": "checkbox", "id": "is_placeholder", "label": "Mark as placeholder", "default": true },
-        { "type": "image_picker", "id": "image", "label": "Customer or pet image" },
-        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Verified customer quote to be supplied." },
-        { "type": "text", "id": "name", "label": "Customer name", "default": "Customer name to be supplied" }
+        { "type": "image_picker", "id": "pet_image", "label": "Original pet photo" },
+        { "type": "image_picker", "id": "necklace_image", "label": "Finished necklace photo" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "It looks exactly like him. I haven’t taken it off since I got it." },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Megan T." }
       ]
     }
   ],
@@ -66,9 +89,9 @@
     {
       "name": "LUME testimonials",
       "blocks": [
-        { "type": "testimonial", "settings": { "is_placeholder": true, "quote": "Verified customer quote to be supplied.", "name": "Customer name to be supplied" } },
-        { "type": "testimonial", "settings": { "is_placeholder": true, "quote": "Verified customer quote to be supplied.", "name": "Customer name to be supplied" } },
-        { "type": "testimonial", "settings": { "is_placeholder": true, "quote": "Verified customer quote to be supplied.", "name": "Customer name to be supplied" } }
+        { "type": "testimonial", "settings": { "quote": "It looks exactly like him. I haven’t taken it off since I got it.", "name": "Megan T." } },
+        { "type": "testimonial", "settings": { "quote": "The details are true — every little whisker.", "name": "Rachel K." } },
+        { "type": "testimonial", "settings": { "quote": "I cried. Such a loving gift. It means the world to me.", "name": "Amanda L." } }
       ]
     }
   ]

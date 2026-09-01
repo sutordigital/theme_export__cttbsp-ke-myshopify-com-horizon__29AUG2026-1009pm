@@ -328,18 +328,45 @@
 .lume-comparison__image { min-height: 100%; }
 
 /* Testimonials */
-.lume-testimonial { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: center; }
-.lume-testimonial__avatar { width: 76px; aspect-ratio: 1; border-radius: 50%; }
-.lume-testimonial__quote { margin: .3rem 0; font-family: ui-serif, Georgia, serif; font-size: .95rem; line-height: 1.35; }
-.lume-testimonial__name { color: var(--lume-muted); font-size: .76rem; }
-.lume-placeholder-label {
-  display: inline-block;
-  margin-bottom: .25rem;
-  color: var(--lume-gold-dark);
-  font-size: .62rem;
-  font-weight: 800;
-  letter-spacing: .08em;
+.lume-testimonial {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  padding: .8rem;
 }
+.lume-testimonial__pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: .45rem;
+  align-items: center;
+}
+.lume-testimonial__figure { min-width: 0; margin: 0; }
+.lume-testimonial__image { aspect-ratio: 1; border-radius: 12px; }
+.lume-testimonial__image--necklace { background: #e8ddd0; }
+.lume-testimonial__label {
+  display: block;
+  margin-top: .4rem;
+  color: var(--lume-gold-dark);
+  font-size: .58rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  line-height: 1.2;
+  text-align: center;
+}
+.lume-testimonial__arrow {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--lume-gold) 14%, white);
+  color: var(--lume-gold-dark);
+  font-size: 1rem;
+  font-weight: 800;
+}
+.lume-testimonial__story { padding: 0 .25rem .25rem; text-align: center; }
+.lume-testimonial__quote { margin: .4rem 0; font-family: ui-serif, Georgia, serif; font-size: .95rem; line-height: 1.4; }
+.lume-testimonial__name { color: var(--lume-muted); font-size: .76rem; font-weight: 700; }
 
 /* Final CTA */
 .lume-final { --lume-background: #efe2d2; }
@@ -435,7 +462,9 @@
   .lume-list { gap: .45rem; padding: .75rem; }
   .lume-list__copy strong { font-size: .76rem; }
   .lume-list__copy small { font-size: .68rem; }
-  .lume-testimonial { padding: .8rem; }
+  .lume-testimonial { padding: .7rem; }
+  .lume-testimonial__pair { gap: .35rem; }
+  .lume-testimonial__arrow { width: 24px; height: 24px; font-size: .88rem; }
   .lume-final__grid { grid-template-columns: 1fr 1fr; }
   .lume-final__image { min-height: 200px; }
   .lume-final__copy { padding: 1.7rem 1.1rem; }
