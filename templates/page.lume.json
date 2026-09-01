@@ -21,6 +21,8 @@
       },
       "block_order": ["benefit_likeness", "benefit_approval", "benefit_silver", "avatar_one", "avatar_two", "avatar_three"],
       "settings": {
+        "show_mobile_carousel": true,
+        "carousel_product": "lume-custom-pet-portrait-necklace",
         "text": "<p>Turn your favorite photo into a custom line-art portrait, crafted into a sterling silver necklace made to feel unmistakably like them.</p>",
         "button_label": "CREATE MY PORTRAIT →"
       }

@@ -9,6 +9,27 @@
     <div class="lume-hero__copy">
       {% if section.settings.eyebrow != blank %}<p class="lume-eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
       <h1 class="lume-heading">{{ section.settings.heading }}</h1>
+
+      {% assign carousel_product = section.settings.carousel_product %}
+      {% if section.settings.show_mobile_carousel and carousel_product != blank and carousel_product.images.size > 0 %}
+        <div class="lume-mobile-product-carousel" role="region" aria-label="{{ carousel_product.title | escape }} product images">
+          <div class="lume-mobile-product-carousel__track" role="list">
+            {% for image in carousel_product.images %}
+              {% assign carousel_alt = image.alt | default: carousel_product.title %}
+              <figure class="lume-mobile-product-carousel__slide" role="listitem">
+                {{ image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '360, 540, 720, 1000', sizes: '92vw', alt: carousel_alt }}
+              </figure>
+            {% endfor %}
+          </div>
+          <div class="lume-mobile-product-carousel__hint" aria-hidden="true">
+            <span>Swipe to explore</span>
+            <span class="lume-mobile-product-carousel__dots">
+              {% for image in carousel_product.images %}<i></i>{% endfor %}
+            </span>
+          </div>
+        </div>
+      {% endif %}
+
       {% if section.settings.text != blank %}<div class="lume-subheading lume-hero__text">{{ section.settings.text }}</div>{% endif %}
 
       <div class="lume-benefits" role="list">
@@ -103,6 +124,8 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE DETAILS THAT MAKE THEM THEM." },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "A portrait of your pet, made wearable." },
+    { "type": "checkbox", "id": "show_mobile_carousel", "label": "Show product carousel on mobile", "default": true },
+    { "type": "product", "id": "carousel_product", "label": "Mobile carousel product" },
     { "type": "richtext", "id": "text", "label": "Supporting text", "default": "<p>Turn your favorite photo into a custom line-art portrait, crafted into a sterling silver necklace made to feel unmistakably like them.</p>" },
     { "type": "text", "id": "button_label", "label": "Button label", "default": "CREATE MY PORTRAIT →" },
     { "type": "url", "id": "button_link", "label": "Button link" },

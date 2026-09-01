@@ -10,14 +10,14 @@
           <article class="lume-card lume-testimonial" role="listitem" {{ block.shopify_attributes }}>
             {% case forloop.index %}
               {% when 1 %}
-                {% assign fallback_pet = 'lume-testimonial-1-pet.png' %}
-                {% assign fallback_necklace = 'lume-testimonial-1-necklace.png' %}
+                {% assign fallback_pet = 'lume-testimonial-megan-pet.webp' %}
+                {% assign fallback_necklace = 'lume-testimonial-megan-necklace.webp' %}
               {% when 2 %}
-                {% assign fallback_pet = 'lume-testimonial-2-pet.png' %}
-                {% assign fallback_necklace = 'lume-testimonial-2-necklace.png' %}
+                {% assign fallback_pet = 'lume-testimonial-rachel-pet.webp' %}
+                {% assign fallback_necklace = 'lume-testimonial-rachel-necklace.webp' %}
               {% else %}
-                {% assign fallback_pet = 'lume-testimonial-3-pet.png' %}
-                {% assign fallback_necklace = 'lume-testimonial-3-necklace.png' %}
+                {% assign fallback_pet = 'lume-testimonial-amanda-pet.webp' %}
+                {% assign fallback_necklace = 'lume-testimonial-amanda-necklace.webp' %}
             {% endcase %}
 
             <div class="lume-testimonial__pair" aria-label="Photo to finished necklace comparison">
