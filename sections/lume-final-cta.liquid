@@ -14,10 +14,12 @@
     <div class="lume-final__copy">
       {% if section.settings.eyebrow != blank %}<p class="lume-eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
       <h2 class="lume-heading lume-heading--section">{{ section.settings.heading }}</h2>
+      {% if section.settings.text != blank %}<div class="lume-subheading lume-final__text">{{ section.settings.text }}</div>{% endif %}
       <div style="margin-top:1.2rem">
         <a class="lume-button" href="{{ section.settings.button_link | default: '#' }}">{{ section.settings.button_label }}</a>
       </div>
       {% if section.settings.support != blank %}<div class="lume-final__support">{{ section.settings.support }}</div>{% endif %}
+      {% if section.settings.guarantee != blank %}<div class="lume-final__guarantee">{{ section.settings.guarantee }}</div>{% endif %}
     </div>
     <div class="lume-media lume-final__image">
       {% if section.settings.right_image != blank %}
@@ -35,11 +37,13 @@
   "tag": "section",
   "enabled_on": { "templates": ["page"] },
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Supporting line", "default": "More than a photo. A piece of them, always with you." },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Create a necklace you’ll carry their memory with you." },
-    { "type": "text", "id": "button_label", "label": "Button label", "default": "CREATE YOURS NOW →" },
+    { "type": "text", "id": "eyebrow", "label": "Supporting line", "default": "MORE THAN ANOTHER PHOTO ON YOUR PHONE." },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Keep your favorite face close, wherever you go." },
+    { "type": "richtext", "id": "text", "label": "Supporting copy", "default": "<p>Turn the little features you love most into a custom sterling silver portrait made just for you.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "CREATE MY PORTRAIT →" },
     { "type": "url", "id": "button_link", "label": "Button link" },
-    { "type": "text", "id": "support", "label": "Guarantee line", "default": "60-DAY GUARANTEE. WE MAKE IT RIGHT. ALWAYS." },
+    { "type": "text", "id": "support", "label": "Reassurance line", "default": "Portrait approval included · One free revision · Final likeness check" },
+    { "type": "textarea", "id": "guarantee", "label": "Guarantee line", "default": "If your finished necklace doesn’t match the portrait you approved, we’ll make it right." },
     { "type": "image_picker", "id": "left_image", "label": "Emotional lifestyle image" },
     { "type": "image_picker", "id": "right_image", "label": "Product image" },
     { "type": "color", "id": "background", "label": "Background", "default": "#efe2d2" },

@@ -17,7 +17,7 @@
           <div class="lume-trust__item" role="listitem" {{ block.shopify_attributes }}>
             <span class="lume-trust__illustration" aria-hidden="true">
               {% if block.settings.image != blank %}
-                {{ block.settings.image | image_url: width: 320 | image_tag: loading: 'lazy', widths: '160, 240, 320', sizes: '72px', alt: '' }}
+                {{ block.settings.image | image_url: width: 320 | image_tag: loading: 'lazy', widths: '160, 240, 320', sizes: '(min-width: 750px) 104px, 88px', alt: '' }}
               {% else %}
                 <img src="{{ fallback_illustration | asset_url }}" loading="lazy" width="320" height="320" alt="">
               {% endif %}
@@ -50,7 +50,7 @@
         { "type": "checkbox", "id": "show", "label": "Show", "default": true },
         { "type": "image_picker", "id": "image", "label": "Custom illustration" },
         { "type": "text", "id": "title", "label": "Title", "default": "925 Sterling Silver" },
-        { "type": "text", "id": "text", "label": "Supporting line", "default": "Never fades, made to last." }
+        { "type": "text", "id": "text", "label": "Supporting line", "default": "Real jewellery, made to last." }
       ]
     }
   ],
@@ -58,11 +58,11 @@
     {
       "name": "LUME trust strip",
       "blocks": [
-        { "type": "trust_point", "settings": { "title": "925 Sterling Silver", "text": "Never fades, made to last." } },
-        { "type": "trust_point", "settings": { "title": "Portraits Approved", "text": "You approve before we create." } },
-        { "type": "trust_point", "settings": { "title": "One Free Revision", "text": "Get it right, with no extra cost." } },
-        { "type": "trust_point", "settings": { "title": "Final Likeness Check", "text": "We check and sign off your approval." } },
-        { "type": "trust_point", "settings": { "title": "Risk-Free Guarantee", "text": "We make it right, always." } }
+        { "type": "trust_point", "settings": { "title": "925 Sterling Silver", "text": "Real jewellery, made to last." } },
+        { "type": "trust_point", "settings": { "title": "Portrait Approval", "text": "You see and approve it before production." } },
+        { "type": "trust_point", "settings": { "title": "One Free Revision", "text": "One complimentary adjustment if you want it changed." } },
+        { "type": "trust_point", "settings": { "title": "Final Likeness Check", "text": "We check the finished piece against your approved portrait." } },
+        { "type": "trust_point", "settings": { "title": "Risk-Free Guarantee", "text": "If we get it wrong, we make it right." } }
       ]
     }
   ]

@@ -12,24 +12,27 @@
     "lume_hero": {
       "type": "lume-hero",
       "blocks": {
-        "benefit_likeness": { "type": "benefit", "settings": { "show": true, "text": "Looks exactly like your pet" } },
-        "benefit_approval": { "type": "benefit", "settings": { "show": true, "text": "Approve the portrait before it’s made" } },
-        "benefit_silver": { "type": "benefit", "settings": { "show": true, "text": "Made in 925 Sterling Silver" } },
+        "benefit_likeness": { "type": "benefit", "settings": { "show": true, "text": "Recognisable at a glance", "supporting_text": "Captures the features that make them uniquely yours." } },
+        "benefit_approval": { "type": "benefit", "settings": { "show": true, "text": "Approve your portrait first", "supporting_text": "See it before your necklace goes into production." } },
+        "benefit_silver": { "type": "benefit", "settings": { "show": true, "text": "925 Sterling Silver", "supporting_text": "Made to be worn, loved, and kept." } },
         "avatar_one": { "type": "avatar", "settings": {} },
         "avatar_two": { "type": "avatar", "settings": {} },
         "avatar_three": { "type": "avatar", "settings": {} }
       },
       "block_order": ["benefit_likeness", "benefit_approval", "benefit_silver", "avatar_one", "avatar_two", "avatar_three"],
-      "settings": {}
+      "settings": {
+        "text": "<p>Turn your favorite photo into a custom line-art portrait, crafted into a sterling silver necklace made to feel unmistakably like them.</p>",
+        "button_label": "CREATE MY PORTRAIT →"
+      }
     },
     "lume_trust": {
       "type": "lume-trust-strip",
       "blocks": {
-        "trust_silver": { "type": "trust_point", "settings": { "show": true, "title": "925 Sterling Silver", "text": "Never fades, made to last." } },
-        "trust_approval": { "type": "trust_point", "settings": { "show": true, "title": "Portraits Approved", "text": "You approve before we create." } },
-        "trust_revision": { "type": "trust_point", "settings": { "show": true, "title": "One Free Revision", "text": "Get it right, with no extra cost." } },
-        "trust_check": { "type": "trust_point", "settings": { "show": true, "title": "Final Likeness Check", "text": "We check and sign off your approval." } },
-        "trust_guarantee": { "type": "trust_point", "settings": { "show": true, "title": "Risk-Free Guarantee", "text": "We make it right, always." } }
+        "trust_silver": { "type": "trust_point", "settings": { "show": true, "title": "925 Sterling Silver", "text": "Real jewellery, made to last." } },
+        "trust_approval": { "type": "trust_point", "settings": { "show": true, "title": "Portrait Approval", "text": "You see and approve it before production." } },
+        "trust_revision": { "type": "trust_point", "settings": { "show": true, "title": "One Free Revision", "text": "One complimentary adjustment if you want it changed." } },
+        "trust_check": { "type": "trust_point", "settings": { "show": true, "title": "Final Likeness Check", "text": "We check the finished piece against your approved portrait." } },
+        "trust_guarantee": { "type": "trust_point", "settings": { "show": true, "title": "Risk-Free Guarantee", "text": "If we get it wrong, we make it right." } }
       },
       "block_order": ["trust_silver", "trust_approval", "trust_revision", "trust_check", "trust_guarantee"],
       "settings": {}
@@ -37,14 +40,17 @@
     "lume_process": {
       "type": "lume-process",
       "blocks": {
-        "step_upload": { "type": "step", "settings": { "show": true, "number": "1", "title": "YOU UPLOAD YOUR PHOTO", "text": "Choose your favorite clear photo." } },
-        "step_create": { "type": "step", "settings": { "show": true, "number": "2", "title": "WE CREATE THE PORTRAIT", "text": "Our artist captures your pet’s signature features in clean line art." } },
-        "step_review": { "type": "step", "settings": { "show": true, "number": "3", "title": "YOU REVIEW & APPROVE", "text": "Request one free revision or approve when it’s perfect." } },
-        "step_craft": { "type": "step", "settings": { "show": true, "number": "4", "title": "WE CRAFT YOUR NECKLACE", "text": "Made in 925 Sterling Silver and crafted with care." } },
-        "step_ship": { "type": "step", "settings": { "show": true, "number": "5", "title": "WE CHECK & SHIP TO YOU", "text": "Final likeness check, beautiful packaging, and on its way." } }
+        "step_upload": { "type": "step", "settings": { "show": true, "number": "1", "title": "UPLOAD YOUR FAVORITE PHOTO", "text": "Choose a clear photo that shows their face and signature features." } },
+        "step_create": { "type": "step", "settings": { "show": true, "number": "2", "title": "WE CREATE YOUR LUME PORTRAIT", "text": "We turn their expression, shape and little quirks into clean line art." } },
+        "step_review": { "type": "step", "settings": { "show": true, "number": "3", "title": "YOU REVIEW & APPROVE", "text": "Love it? Approve it. Want an adjustment? One complimentary revision is included." } },
+        "step_craft": { "type": "step", "settings": { "show": true, "number": "4", "title": "WE CRAFT YOUR NECKLACE", "text": "Your approved portrait is made into a 925 sterling silver keepsake." } },
+        "step_ship": { "type": "step", "settings": { "show": true, "number": "5", "title": "WE CHECK & SHIP", "text": "We compare the finished piece with your approved portrait before sending it your way." } }
       },
       "block_order": ["step_upload", "step_create", "step_review", "step_craft", "step_ship"],
-      "settings": {}
+      "settings": {
+        "heading": "FROM PHOTO TO PORTRAIT IN 5 SIMPLE STEPS",
+        "subheading": "You approve the artwork before we make your necklace."
+      }
     },
     "lume_examples": {
       "type": "lume-examples",
@@ -55,45 +61,73 @@
         "example_together": { "type": "example", "settings": { "show": true, "title": "PORTRAIT TO PENDANT" } }
       },
       "block_order": ["example_poodle", "example_collie", "example_smile", "example_together"],
-      "settings": {}
+      "settings": {
+        "heading": "SEE HOW WE CAPTURE THEIR CHARACTER",
+        "subheading": "Your favorite photo, simplified into clean line art that keeps the features you recognise instantly.",
+        "closing_line": "Not photorealistic. Not generic. Just their signature look, turned into something you can wear."
+      }
     },
     "lume_comparison": {
       "type": "lume-comparison",
       "blocks": {
-        "lume_one": { "type": "lume_point", "settings": { "show": true, "text": "Looks like your pet’s unique self" } },
-        "lume_two": { "type": "lume_point", "settings": { "show": true, "text": "Portraits approved before made" } },
-        "lume_three": { "type": "lume_point", "settings": { "show": true, "text": "Real likeness check at every order" } },
-        "lume_four": { "type": "lume_point", "settings": { "show": true, "text": "925 Sterling Silver, built to last" } },
-        "lume_five": { "type": "lume_point", "settings": { "show": true, "text": "Real people. Real happiness." } },
-        "other_one": { "type": "other_point", "settings": { "show": true, "text": "Generic or hard to recognize" } },
-        "other_two": { "type": "other_point", "settings": { "show": true, "text": "No approval, no portrait" } },
-        "other_three": { "type": "other_point", "settings": { "show": true, "text": "Risk of no likeness" } },
-        "other_four": { "type": "other_point", "settings": { "show": true, "text": "Cheap materials" } },
-        "other_five": { "type": "other_point", "settings": { "show": true, "text": "Slow or no response" } },
+        "lume_one": { "type": "lume_point", "settings": { "show": true, "text": "Made from your actual pet photo", "detail": "Not a generic breed symbol or paw print." } },
+        "lume_two": { "type": "lume_point", "settings": { "show": true, "text": "Signature features captured in line art", "detail": "Expression, ears, markings, fluff and little quirks." } },
+        "lume_three": { "type": "lume_point", "settings": { "show": true, "text": "Portrait approved before production", "detail": "You see the artwork before it becomes jewellery." } },
+        "lume_four": { "type": "lume_point", "settings": { "show": true, "text": "Final portrait-to-piece check", "detail": "We compare the finished necklace with your approved artwork." } },
+        "lume_five": { "type": "lume_point", "settings": { "show": true, "text": "925 Sterling Silver", "detail": "Designed as jewellery, not disposable novelty merchandise." } },
+        "other_one": { "type": "other_point", "settings": { "show": true, "text": "Generic symbols or simplified templates", "detail": "Often focused on names, paw prints or breed shapes." } },
+        "other_two": { "type": "other_point", "settings": { "show": true, "text": "Limited likeness", "detail": "May not preserve the features that make your pet distinctive." } },
+        "other_three": { "type": "other_point", "settings": { "show": true, "text": "Approval varies by seller", "detail": "Some personalised products move directly into production." } },
+        "other_four": { "type": "other_point", "settings": { "show": true, "text": "Final-match checking varies", "detail": "A digital preview does not always guarantee physical fidelity." } },
+        "other_five": { "type": "other_point", "settings": { "show": true, "text": "Materials vary widely", "detail": "From plated metals to sterling silver." } },
         "support_cat": { "type": "support_image", "settings": { "show": true } },
         "support_dog": { "type": "support_image", "settings": { "show": true } }
       },
       "block_order": ["lume_one", "lume_two", "lume_three", "lume_four", "lume_five", "other_one", "other_two", "other_three", "other_four", "other_five", "support_cat", "support_dog"],
-      "settings": {}
+      "settings": {
+        "heading": "WHY LUME FEELS MORE PERSONAL",
+        "subheading": "Custom jewellery should feel like your pet — not just any pet.",
+        "other_heading": "BASIC PET JEWELLERY"
+      }
     },
     "lume_testimonials": {
       "type": "lume-testimonials",
       "blocks": {
-        "review_one": { "type": "testimonial", "settings": { "show": true, "quote": "It looks exactly like him. I haven’t taken it off since I got it.", "name": "Megan T." } },
-        "review_two": { "type": "testimonial", "settings": { "show": true, "quote": "The details are true — every little whisker.", "name": "Rachel K." } },
-        "review_three": { "type": "testimonial", "settings": { "show": true, "quote": "I cried. Such a loving gift. It means the world to me.", "name": "Amanda L." } }
+        "review_one": { "type": "testimonial", "settings": { "show": true, "is_placeholder": true, "quote": "Verified customer quote to be supplied.", "name": "Customer name to be supplied" } },
+        "review_two": { "type": "testimonial", "settings": { "show": true, "is_placeholder": true, "quote": "Verified customer quote to be supplied.", "name": "Customer name to be supplied" } },
+        "review_three": { "type": "testimonial", "settings": { "show": true, "is_placeholder": true, "quote": "Verified customer quote to be supplied.", "name": "Customer name to be supplied" } }
       },
       "block_order": ["review_one", "review_two", "review_three"],
-      "settings": {}
+      "settings": {
+        "heading": "LOVED BY PET PARENTS",
+        "subheading": "Verified customer stories will be added here."
+      }
     },
-    "lume_final": { "type": "lume-final-cta", "settings": {} },
-    "lume_sticky": { "type": "lume-sticky-cta", "settings": {} }
+    "lume_final": {
+      "type": "lume-final-cta",
+      "settings": {
+        "eyebrow": "MORE THAN ANOTHER PHOTO ON YOUR PHONE.",
+        "heading": "Keep your favorite face close, wherever you go.",
+        "text": "<p>Turn the little features you love most into a custom sterling silver portrait made just for you.</p>",
+        "button_label": "CREATE MY PORTRAIT →",
+        "support": "Portrait approval included · One free revision · Final likeness check",
+        "guarantee": "If your finished necklace doesn’t match the portrait you approved, we’ll make it right."
+      }
+    },
+    "lume_sticky": {
+      "type": "lume-sticky-cta",
+      "settings": {
+        "show": true,
+        "label": "Your Pet. Made Wearable.",
+        "button_label": "START WITH A PHOTO"
+      }
+    }
   },
   "order": [
     "lume_hero",
     "lume_trust",
-    "lume_process",
     "lume_examples",
+    "lume_process",
     "lume_comparison",
     "lume_testimonials",
     "lume_final",

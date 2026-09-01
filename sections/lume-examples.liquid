@@ -38,6 +38,7 @@
         {% endif %}
       {% endfor %}
     </div>
+    {% if section.settings.closing_line != blank %}<p class="lume-examples__closing">{{ section.settings.closing_line }}</p>{% endif %}
   </div>
 </section>
 
@@ -47,8 +48,9 @@
   "tag": "section",
   "enabled_on": { "templates": ["page"] },
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "REAL OUTLINE STYLE EXAMPLES" },
-    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Your favorite photo, transformed into clean and recognisable line art." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "SEE HOW WE CAPTURE THEIR CHARACTER" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Your favorite photo, simplified into clean line art that keeps the features you recognise instantly." },
+    { "type": "textarea", "id": "closing_line", "label": "Closing line", "default": "Not photorealistic. Not generic. Just their signature look, turned into something you can wear." },
     { "type": "color", "id": "background", "label": "Background", "default": "#fffaf3" },
     { "type": "color", "id": "accent", "label": "Accent", "default": "#b87a20" }
   ],

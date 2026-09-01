@@ -17,7 +17,10 @@
         <ul class="lume-list">
           {% for block in section.blocks %}
             {% if block.type == 'lume_point' and block.settings.show %}
-              <li {{ block.shopify_attributes }}><span class="lume-list__mark">✓</span><span>{{ block.settings.text }}</span></li>
+              <li {{ block.shopify_attributes }}>
+                <span class="lume-list__mark">✓</span>
+                <span class="lume-list__copy"><strong>{{ block.settings.text }}</strong>{% if block.settings.detail != blank %}<small>{{ block.settings.detail }}</small>{% endif %}</span>
+              </li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -35,7 +38,10 @@
         <ul class="lume-list">
           {% for block in section.blocks %}
             {% if block.type == 'other_point' and block.settings.show %}
-              <li {{ block.shopify_attributes }}><span class="lume-list__mark" style="color:#716b64">×</span><span>{{ block.settings.text }}</span></li>
+              <li {{ block.shopify_attributes }}>
+                <span class="lume-list__mark" style="color:#716b64">•</span>
+                <span class="lume-list__copy"><strong>{{ block.settings.text }}</strong>{% if block.settings.detail != blank %}<small>{{ block.settings.detail }}</small>{% endif %}</span>
+              </li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -68,8 +74,8 @@
   "tag": "section",
   "enabled_on": { "templates": ["page"] },
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "WHY LUME IS DIFFERENT" },
-    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Most custom pet jewellery misses the details. We don’t." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "WHY LUME FEELS MORE PERSONAL" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Custom jewellery should feel like your pet — not just any pet." },
     { "type": "text", "id": "lume_heading", "label": "LUME card heading", "default": "LUME" },
     { "type": "image_picker", "id": "lume_image", "label": "LUME comparison image" },
     { "type": "text", "id": "other_heading", "label": "Competitor card heading", "default": "OTHER BRANDS" },
@@ -80,11 +86,13 @@
   "blocks": [
     { "type": "lume_point", "name": "LUME benefit", "limit": 5, "settings": [
       { "type": "checkbox", "id": "show", "label": "Show", "default": true },
-      { "type": "text", "id": "text", "label": "Text", "default": "Looks like your pet’s unique self" }
+      { "type": "text", "id": "text", "label": "Title", "default": "Made from your actual pet photo" },
+      { "type": "textarea", "id": "detail", "label": "Supporting text", "default": "Not a generic breed symbol or paw print." }
     ] },
     { "type": "other_point", "name": "Other brand drawback", "limit": 5, "settings": [
       { "type": "checkbox", "id": "show", "label": "Show", "default": true },
-      { "type": "text", "id": "text", "label": "Text", "default": "Generic or hard to recognize" }
+      { "type": "text", "id": "text", "label": "Title", "default": "Generic symbols or simplified templates" },
+      { "type": "textarea", "id": "detail", "label": "Supporting text", "default": "Often focused on names, paw prints or breed shapes." }
     ] },
     { "type": "support_image", "name": "Supporting product image", "limit": 2, "settings": [
       { "type": "checkbox", "id": "show", "label": "Show", "default": true },
@@ -95,16 +103,16 @@
     {
       "name": "LUME comparison",
       "blocks": [
-        { "type": "lume_point", "settings": { "text": "Looks like your pet’s unique self" } },
-        { "type": "lume_point", "settings": { "text": "Portraits approved before made" } },
-        { "type": "lume_point", "settings": { "text": "Real likeness check at every order" } },
-        { "type": "lume_point", "settings": { "text": "925 Sterling Silver, built to last" } },
-        { "type": "lume_point", "settings": { "text": "Real people. Real happiness." } },
-        { "type": "other_point", "settings": { "text": "Generic or hard to recognize" } },
-        { "type": "other_point", "settings": { "text": "No approval, no portrait" } },
-        { "type": "other_point", "settings": { "text": "Risk of no likeness" } },
-        { "type": "other_point", "settings": { "text": "Cheap materials" } },
-        { "type": "other_point", "settings": { "text": "Slow or no response" } },
+        { "type": "lume_point", "settings": { "text": "Made from your actual pet photo", "detail": "Not a generic breed symbol or paw print." } },
+        { "type": "lume_point", "settings": { "text": "Signature features captured in line art", "detail": "Expression, ears, markings, fluff and little quirks." } },
+        { "type": "lume_point", "settings": { "text": "Portrait approved before production", "detail": "You see the artwork before it becomes jewellery." } },
+        { "type": "lume_point", "settings": { "text": "Final portrait-to-piece check", "detail": "We compare the finished necklace with your approved artwork." } },
+        { "type": "lume_point", "settings": { "text": "925 Sterling Silver", "detail": "Designed as jewellery, not disposable novelty merchandise." } },
+        { "type": "other_point", "settings": { "text": "Generic symbols or simplified templates", "detail": "Often focused on names, paw prints or breed shapes." } },
+        { "type": "other_point", "settings": { "text": "Limited likeness", "detail": "May not preserve the features that make your pet distinctive." } },
+        { "type": "other_point", "settings": { "text": "Approval varies by seller", "detail": "Some personalised products move directly into production." } },
+        { "type": "other_point", "settings": { "text": "Final-match checking varies", "detail": "A digital preview does not always guarantee physical fidelity." } },
+        { "type": "other_point", "settings": { "text": "Materials vary widely", "detail": "From plated metals to sterling silver." } },
         { "type": "support_image" }, { "type": "support_image" }
       ]
     }
